@@ -1,0 +1,20 @@
+const input = document.getElementById("noteInput");
+const addBtn = document.getElementById("addBtn");
+const notesList = document.getElementById("notesList");
+
+addBtn.addEventListener("click", () => {
+  const noteText = input.value.trim();
+  if (!noteText) return;
+
+  const li = document.createElement("li");
+  li.textContent = noteText;
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "Delete";
+  delBtn.onclick = () => li.remove();
+
+  li.appendChild(delBtn);
+  notesList.appendChild(li);
+
+  input.value = "";
+});
